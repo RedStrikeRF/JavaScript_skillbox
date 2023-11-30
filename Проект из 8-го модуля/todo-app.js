@@ -80,36 +80,25 @@
             id
         };
     }
-    
-    function saveLocalStorage(listName, savedList) {
-        localStorage.setItem(listName, JSON.stringify(savedList))
+    function localStorageSave(key, listForSave) {
+        localStorage.setItem(key, JSON.stringify(listForSave));
     }
 
+    function getLocalStorageSave(key) {
+        let returning = localStorage.getItem(key);
+        return JSON.parse(returning);
+    }
     function createTodoApp(container, title = 'Список дел', listName) {
         let todoAppTitle = createAppTitle(title);
         let todoItemForm = createTodoItemForm();
         let todoList = createTodoList();
         let savedList = [];
-
-        if (localStorage.getItem(listName)) {
-            for (item of JSON.parse(localStorage.getItem(listName))) {
-                console.log(item)
-                savedList.push(item)
-                todoList.append(createTodoItem(item.name, item.done).item)
-            }
-        }
+        let lastTry = getLocalStorageSave(listName)
         
         container.append(todoAppTitle);
         container.append(todoItemForm.form);
         container.append(todoList);
         
-        todoItemForm.input.addEventListener('input', function() { 
-           if (todoItemForm.input.value) {
-            todoItemForm.button.disabled = false
-        } else {
-            todoItemForm.button.disabled = true
-        }
-        });
 
         todoItemForm.form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -125,9 +114,10 @@
                 todoItem.item.classList.toggle('list-group-item-success');
                 for (index in savedList) {
                     if (todoItem.id == savedList[index].id) {
-                        savedList[index].done = savedList[index].done ? false : true
-                        saveLocalStorage(listName, savedList)
-                        break
+                        savedList[index].done = savedList[index].done ? false : true;
+                        localStorageSave(listName, savedList);
+                        console.log(savedList);
+                        break;
                     }
                 }
             });
@@ -136,20 +126,28 @@
                 if (confirm('Вы уверены?')) {
                     for (index in savedList) {
                         if (todoItem.id == savedList[index].id) {
-                            savedList.splice(index, 1)
+                            savedList.splice(index, 1);
+                            localStorageSave(listName, savedList);
+                            console.log(savedList);
                             break
                         }
                     }
                     todoItem.item.remove();
-                    saveLocalStorage(listName, savedList)
                 }
             });
-
-            todoList.append(todoItem.item)
-            saveLocalStorage(listName, savedList)
+            todoList.append(todoItem.item);
+            localStorageSave(listName, savedList);
             todoItemForm.input.value = '';
             todoItemForm.button.disabled = true;
         });
+
+        todoItemForm.input.addEventListener('input', function() { 
+            if (todoItemForm.input.value) {
+             todoItemForm.button.disabled = false;
+         } else {
+             todoItemForm.button.disabled = true;
+         }
+         });
     }
 
     window.createTodoApp = createTodoApp;
