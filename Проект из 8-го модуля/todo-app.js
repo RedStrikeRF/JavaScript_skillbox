@@ -92,9 +92,48 @@
         let todoAppTitle = createAppTitle(title);
         let todoItemForm = createTodoItemForm();
         let todoList = createTodoList();
+        
         let savedList = [];
         let lastTry = getLocalStorageSave(listName)
+
         
+        if (lastTry !== null && lastTry !== undefined)
+        {
+            for (item of lastTry) {
+                let todoItem = createTodoItem(item.name, item.done)
+                
+                savedList.push({id: todoItem.id, name: item.name, done: item.done});
+                
+                todoItem.doneButton.addEventListener('click', function() {
+                    todoItem.item.classList.toggle('list-group-item-success');
+                    for (index in savedList) {
+                        if (todoItem.id == savedList[index].id) {
+                            savedList[index].done = savedList[index].done ? false : true;
+                            localStorageSave(listName, savedList);
+                            console.log(savedList);
+                            break;
+                        }
+                    }
+                });
+    
+                todoItem.deleteButton.addEventListener('click', function() {
+                    if (confirm('Вы уверены?')) {
+                        for (index in savedList) {
+                            if (todoItem.id == savedList[index].id) {
+                                savedList.splice(index, 1);
+                                localStorageSave(listName, savedList);
+                                console.log(savedList);
+                                break
+                            }
+                        }
+                        todoItem.item.remove();
+                    }
+                });
+                todoList.append(todoItem.item);
+            }
+        }
+        
+
         container.append(todoAppTitle);
         container.append(todoItemForm.form);
         container.append(todoList);
@@ -135,11 +174,14 @@
                     todoItem.item.remove();
                 }
             });
+
             todoList.append(todoItem.item);
             localStorageSave(listName, savedList);
+
             todoItemForm.input.value = '';
             todoItemForm.button.disabled = true;
         });
+
 
         todoItemForm.input.addEventListener('input', function() { 
             if (todoItemForm.input.value) {

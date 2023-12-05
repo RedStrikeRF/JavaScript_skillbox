@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1612239686_188-p-fioletovo-korichnevii-fon-241.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    
+    width: 100%;
+
+    padding: 20px 40px;
+}
+
+.input {
+    display: inline-block;
+
+    height: 70px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin: 0 auto;
+    margin-bottom: 15px;
+
+    background-color: rgba(128, 106, 117, 0.8);
+}
+
+.input_field {
+    margin: auto 20px auto 10px;
+
+    width: 200px;
+    height: 40px;
+
+    border: 1px solid black;
+    border-radius: 15px;
+
+    line-height: 1.5;
+
+    text-align:center;
+}
+
+.input_field::placeholder {
+    text-align: center;
+}
+
+.input-btn {
+    width: 100px;
+    height: 100%;
+    
+    border: 1px solid black;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+
+    line-height: 1.5;
+}
+
+.main-title {
+    margin-bottom: 15px;
+    margin-top: 15px;
+
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+
+
+}
+
+.main-descr {
+    margin-bottom: 15px;
+    padding: 20px;
+
+    border: 2px solid orange;
+    border-radius: 20px;
+    background-color: chocolate;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+
+    list-style: none;
+}
+
+.li-header {
+    font-size: 20px;
+}
+
+li:last-child {
+    margin-bottom: 0px;
+}
+.descr {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.closed-card {
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+
+    margin: 10px;
+    padding: 10px;
+    
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.open-card {
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+
+    margin: 10px;
+    padding: 10px;
+
+    border-radius: 15px;
+    border: 2px solid black;
+    background-color: rgba(100, 100, 100, 0.5);
+}
+
+.game-field {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(255, 238, 0, 0.3);
+    max-width: 600px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
