@@ -118,13 +118,13 @@ function startGame(count) {
                     disable.disabled = true;
                 }
                 if (open_card[0] == open_card[1]) {
-                    open_count += 2;
-                    console.log(open_count)
+                    open_count += 1;
+                    if (open_count === count) {
+                        win();
+                    }
                 } else {
                     setTimeout(() => {
                         for(let card of game_field.children) {
-                            
-                            console.log(card.textContent, open_card[0], open_card[1])
                             if (card.textContent === open_card[0] || card.textContent === open_card[1]) {
                                 card.classList.add('closed-card');
                                 card.classList.remove('open-card');
@@ -144,6 +144,8 @@ function startGame(count) {
             }
         })
     }
+
+    
 }
 
 function game_started() {
@@ -180,6 +182,22 @@ function game_started() {
             description_item.description.textContent = `Неправильный формат ввода, попробуйте еще раз!`
         }
     })
+}
+
+
+function win() {
+    document.body.innerHTML = '';
+    const body = document.body;
+    const description_item = initialize_description();
+
+    description_item.description.textContent = 'Поздравляю с победой, через 5 сек игра перезапустится'
+    body.append(description_item.main_title, description_item.main_description);
+    body.append(description_item.description);
+
+    setTimeout(() => {
+        document.body.innerHTML = '';
+        game_started();
+    }, 5000)
 }
 
 document.addEventListener("DOMContentLoaded", game_started());
