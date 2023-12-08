@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.input-field {
+    width: 370px;
+    height: 40px;
+    background-color: white;
+    text-align: left;
+    font-size: 16px;
+    
+    margin-bottom: 15px;
+
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.input-field:last-child {
+    margin-bottom: 25px;
+}
+
+.input-field::placeholder {
+    text-align: left;
+}
+.submit-button {
+    width: 200px;
+    height: 40px;
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.input-display {
+    width: 400px;
+    
+    margin: 15px 50px auto 15px;
+    padding: 15px;
+
+    border: 3px black solid;
+    border-radius: 20px;
+    background-color: blueviolet;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+}
+
+.output-display {
+    border: 3px solid black;
+    border-radius: 55px;
+    background-color: plum;
+
+    margin-top: 15px;
+    min-width: 800px;
+}
+
+.output-title {
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px dashed black;
+    height: 55px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.output-filter {
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+
+    border-bottom: solid 3px black;
+}
+
+.filter-title {
+    text-align: center;
+}
+
+.filter { 
+    min-height: 40px;
+    min-width: 120px;
+    background-color: cadetblue;
+
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    border: 1px solid black;
+    border-radius: 5px
+}
+
+.descr {
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+    margin-bottom: 5px;
+}
+
+.element {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-bottom: 1px dashed black;
+    margin-bottom: 10px;
+}
+
+.field {
+    text-align: center;
+}
