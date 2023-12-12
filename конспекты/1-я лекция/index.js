@@ -61,20 +61,14 @@ function win() {
     const cur = comb[i];
     const curFields = [fields[cur[0]], fields[cur[1]], fields[cur[2]]];
     
-    if (curFields.every(el => el.classList.contains('x'))) {
-      res.innerHTML = 'Выиграли Х';
+    if (curFields.every(el => el.classList.contains('x')) 
+    || curFields.every(el => el.classList.contains('0'))) {
+      res.innerHTML = curFields.every(el => el.classList.contains('x')) ?'Выиграли Х' : 'Выиграли 0';
       curFields.forEach(field => field.classList.add('active'));
       game.removeEventListener('click', init)
       break;
     }
-
-    if (curFields.every(el => el.classList.contains('0'))) {
-      res.innerHTML = 'Выиграли 0';
-      curFields.forEach(field => field.classList.add('active'));
-      game.removeEventListener('click', init);
-      break;
-    }
-
+    
     if (count == 9) {
       res.innerHTML = 'Ничья';
       game.removeEventListener('click', init);
