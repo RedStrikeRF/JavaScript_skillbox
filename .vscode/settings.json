@@ -1,7 +1,6 @@
 {
     "editor.tabSize": 2,
     "editor.cursorStyle": "line",
-    "editor.wordWrap": "bounded",
     "editor.cursorBlinking": "phase",
     "editor.fontFamily": "JetBrains Mono"
 }
