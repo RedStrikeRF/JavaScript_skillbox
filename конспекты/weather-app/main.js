@@ -7,7 +7,7 @@ const API = {
 const container = document.querySelector('.location-container');
 const input = document.querySelector('.searchbar');
 
-let city = 'London';
+let city = localStorage.getItem('city');
 let store = {};
 
 const dateBuilder = (d) => {
@@ -43,14 +43,19 @@ const dateBuilder = (d) => {
 }
 
 input.addEventListener('keyup', (e) => {
-  if (e.key == "Enter" && e.target.value) {
-    city = e.target.value;
+
+  const value = e.target.value;
+
+  if (e.key == "Enter" && value) {
+    city = value;
+    localStorage.setItem('city', city);
     fetchData();
     e.target.value = '';
   }
 })
 
 const fetchData = async () => {
+  getLoader();
   const response = await fetch(`${API.base}weather?q=${city}&appid=${API.key}`).then(res => res.json());
   const {name, weather, main: {temp}, sys: {country}} = response;
   store = {
@@ -62,6 +67,9 @@ const fetchData = async () => {
   renderComponent();
 }
 
+const getLoader = () => {
+  container.innerHTML = `<span class="loader"></span>`
+}
 const renderComponent = () => {
   container.innerHTML = getContent();
 }
@@ -79,7 +87,7 @@ const getContent = () => {
   </div>
 
   <div class="weather-box">
-    <div class="temp">${temp} C</div>
+    <div class="temp">${temp} °C</div>
     <div class="weather">${weather}</div>
   </div>
 </div>`
