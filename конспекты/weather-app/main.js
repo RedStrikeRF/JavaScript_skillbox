@@ -55,7 +55,7 @@ input.addEventListener('keyup', (e) => {
 })
 
 const fetchData = async () => {
-  getLoader();
+  getLoader();  
   const response = await fetch(`${API.base}weather?q=${city}&appid=${API.key}`).then(res => res.json());
   const {name, weather, main: {temp}, sys: {country}} = response;
   store = {
@@ -87,7 +87,7 @@ const getContent = () => {
   </div>
 
   <div class="weather-box">
-    <div class="temp">${temp} °C</div>
+    <div class="temp">${Math.round((temp-273.15) * 100) / 100} °C</div>
     <div class="weather">${weather}</div>
   </div>
 </div>`

@@ -1,6 +1,6 @@
-let str = "123456789";
+let password = "1234-";
 
-if (str.length >= 4 && (str.indexOf('-') + str.indexOf('_')) > 0) {
+if (password.length >= 4 && (password.includes('-') || password.includes('_')) > 0) {
     console.log("Пароль надёжный")
 } else {
     console.log("Пароль недостаточно надёжный")
