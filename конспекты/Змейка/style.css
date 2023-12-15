@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+  margin: 100px;
+}
+
+.field {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #e7f0ed;
+}
+
+.excel {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.snake-body {
+  background: green;
+  border-radius: 50%;
+}
+
+.snake-head {
+  background: orange;
+  border-radius: 20%;
+  position: relative;
+}
+
+.snake-head::before {
+  content: ":";
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+  right: 10px;
+}
+
+.mouse {
+  
+}
