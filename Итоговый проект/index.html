@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Ресторан Меню</title>
+</head>
+<body>
+  <header>
+    <h1>Меню ресторана</h1>
+    <div id="cart">Корзина</div>
+  </header>
+  <main>
+    <div id="filters">
+      <button class="filter-btn" data-category="all">Все</button>
+      <button class="filter-btn" data-category="супы">Супы</button>
+      <button class="filter-btn" data-category="напитки">Напитки</button>
+      <button class="filter-btn" data-category="мясо">Мясо</button>
+    </div>
+    <div id="menu">
+      <!-- Сюда будут добавляться блюда -->
+    </div>
+  </main>
+
+  <div id="modal" class="hidden">
+    <!-- Всплывающий экран с корзиной -->
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
