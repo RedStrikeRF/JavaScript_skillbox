@@ -10,19 +10,19 @@
         crossorigin="anonymous">
     <script defer src="./todo-app.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            createTodoApp(document.getElementById('todo-app'), 'Дела мамы','mom')
-        })
+      document.addEventListener('DOMContentLoaded', () => {
+        createTodoApp(document.getElementById('todo-app'), 'Дела мамы');
+      })
     </script>
 </head>
 <body>
     <div class="container mb-5">
         <nav class="nav">
-            <a class="nav-link" href="index.html">Мои дела</a>
-            <a class="nav-link" href="dad.html">Дела папы</a>
-            <a class="nav-link" href="mom.html">Дела мамы</a>
+            <a href="index.html" class="nav-link">Мои дела</a>
+            <a href="mom.html" class="nav-link">Дела мамы</a>
+            <a href="dad.html" class="nav-link">Дела папы</a>
         </nav>
     </div>
-    <div id="todo-app" class="container"></div>
+    <div class="container" id="todo-app"></div>
 </body>
 </html>
