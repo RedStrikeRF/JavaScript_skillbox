@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: rgba(17, 139, 217, 0.8);
+}
+
+.container {
+  max-width: 1000px;
+  height: 80vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  gap: 30px;
+
+}
+
+.game-field {
+  max-width: 600px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 25px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 25px;
+  justify-content: flex-start;
+
+  padding: 15px;
+  background-color: rgba(88, 171, 223, 0.8);
+  max-width: 400px;
+
+  border-radius: 25px;
+  border: 2px solid black;
+}
+
+.card {
+  min-width: 50px;
+  min-height: 50px;
+  border: 1px solid rgba(25, 30, 200, 0.8);
+  border-radius: 20px;
+
+  padding: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.open-card {
+  color: black;
+  background-color: aqua;
+  cursor: default;
+}
+
+.close-card {
+  color: white;
+  background-color: white;
+}
+
+.well-card {
+  cursor: none;
+  background-color: green;
+  color: black;
+}
