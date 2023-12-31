@@ -1,17 +1,17 @@
 (function () {
     let todoItems = [];
-    let  localKey;
+    let localKey;
     function createAppTitle(title) {
-        let appTitle = document.createElement('h2');
+        const appTitle = document.createElement('h2');
         appTitle.innerHTML = title;
         return appTitle;
     }
   
     function createTodoItem(name, done = false) {
-        let item = document.createElement('li');
-        let buttonGroup = document.createElement('div');
-        let doneButton = document.createElement('button');
-        let deleteButton = document.createElement('button');
+        const item = document.createElement('li');
+        const buttonGroup = document.createElement('div');
+        const doneButton = document.createElement('button');
+        const deleteButton = document.createElement('button');
   
         item.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
         item.textContent = name;
@@ -64,11 +64,12 @@
       }
       return todoItems.length;
     }
+
     function createTodoItemForm() {
-        let form = document.createElement('form');
-        let input = document.createElement('input');
-        let buttonWrapper = document.createElement('div');
-        let button = document.createElement('button');
+        const form = document.createElement('form');
+        const input = document.createElement('input');
+        const buttonWrapper = document.createElement('div');
+        const button = document.createElement('button');
   
         form.classList.add('input-group', 'mb-3');
         input.classList.add('form-control');
@@ -94,7 +95,7 @@
     }
   
     function createTodoList() {
-        let list = document.createElement('ul');
+        const list = document.createElement('ul');
         list.classList.add('list-group');
         return list;
     }
@@ -128,7 +129,7 @@
                 return;
             }
             
-            let todoItem = createTodoItem(todoItemForm.input.value);
+            const todoItem = createTodoItem(todoItemForm.input.value);
   
             todoList.append(todoItem.item);
             saveLocal();
